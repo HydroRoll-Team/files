@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+</head>
+<body>
+    <h1>Upload File</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{{ url_for('uploaded_files') }}">View Uploaded Files</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
