@@ -33,7 +33,7 @@ def login():
             return redirect(url_for('upload_file'))
         else:
             flash('Invalid credentials')
-    return render_template('login.html')
+    return render_template('templates/login.html')
 
 @app.route('/logout')
 def logout():
@@ -57,14 +57,14 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             flash('File successfully uploaded')
             return redirect(url_for('uploaded_files'))
-    return render_template('upload.html')
+    return render_template('templates/upload.html')
 
 @app.route('/files')
 def uploaded_files():
     if 'username' not in session:
         return redirect(url_for('login'))
     files = os.listdir(app.config['UPLOAD_FOLDER'])
-    return render_template('files.html', files=files)
+    return render_template('templates/files.html', files=files)
 
 @app.route('/files/<filename>')
 def file_info(filename):
@@ -81,10 +81,10 @@ def file_info(filename):
             file_type = 'zip'
             with zipfile.ZipFile(file_path, 'r') as zip_ref:
                 zip_contents = zip_ref.namelist()
-            return render_template('file_info.html', filename=filename, file_type=file_type, zip_contents=zip_contents)
+            return render_template('templates/file_info.html', filename=filename, file_type=file_type, zip_contents=zip_contents)
         else:
             file_type = 'other'
-        return render_template('file_info.html', filename=filename, file_type=file_type)
+        return render_template('templates/file_info.html', filename=filename, file_type=file_type)
     else:
         flash('File not found')
         return redirect(url_for('uploaded_files'))
