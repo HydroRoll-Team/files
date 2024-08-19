@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "简律纯",
   "scripts": {
-    "build": "echo 'No build step required'"
+    "build": "yarn build'"
   },
   "dependencies": {
     "express": "^4.17.1"
