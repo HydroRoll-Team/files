@@ -1,0 +1,11 @@
+{
+    "name": "files",
+    "version": "1.0.0",
+    "author": {"name": "简律纯"},
+    "scripts": {
+      "build": "echo 'No build step required'"
+    },
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }

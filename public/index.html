@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory Tree</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        .directory {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Files Directory Tree</h1>
+    <div id="directory-tree"></div>
+
+    <script>
+        async function fetchDirectoryTree() {
+            const response = await fetch('/api/files');
+            return response.json();
+        }
+
+        function createTreeElement(node) {
+            const li = document.createElement('li');
+            li.textContent = node.name;
+            if (node.isDirectory) {
+                li.classList.add('directory');
+                const ul = document.createElement('ul');
+                node.children.forEach(child => {
+                    ul.appendChild(createTreeElement(child));
+                });
+                li.appendChild(ul);
+            }
+            return li;
+        }
+
+        async function displayDirectoryTree() {
+            const tree = await fetchDirectoryTree();
+            const treeContainer = document.getElementById('directory-tree');
+            const ul = document.createElement('ul');
+            tree.forEach(node => {
+                ul.appendChild(createTreeElement(node));
+            });
+            treeContainer.appendChild(ul);
+        }
+
+        displayDirectoryTree();
+    </script>
+</body>
+</html>
