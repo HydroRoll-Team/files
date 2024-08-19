@@ -1,11 +1,23 @@
 {
-    "name": "files",
-    "version": "1.0.0",
-    "author": {"name": "简律纯"},
-    "scripts": {
-      "build": "echo 'No build step required'"
-    },
-    "dependencies": {
-      "express": "^4.17.1"
-    }
-  }
+  "name": "files",
+  "version": "1.0.0",
+  "author": "简律纯",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "description": "files upload.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HydroRoll-Team/files.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HydroRoll-Team/files/issues"
+  },
+  "homepage": "https://github.com/HydroRoll-Team/files#readme"
+}
